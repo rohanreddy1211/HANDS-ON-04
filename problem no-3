@@ -1,0 +1,36 @@
+from typing import List
+
+def remove_dups(arr: List[int]) -> List[int]:
+    """
+    Remove duplicate elements from a list using a set to track seen elements.
+
+    Args:
+        arr (List[int]): A list of integers where duplicates may exist.
+
+    Returns:
+        List[int]: A new list with duplicates removed, preserving the order of unique elements.
+    """
+    seen = set()
+    unique = []
+
+    for num in arr:
+        if num not in seen:
+            seen.add(num)
+            unique.append(num)
+    
+    return unique
+
+
+# Example usage:
+array1 = [2, 2, 2, 2, 2]
+array2 = [1, 2, 2, 3, 4, 4, 4, 5, 5]
+array3 = [5, 4, 3, 2, 1, 1, 2, 3, 4, 5]
+
+print("Unique Elements in Array 1:", remove_dups(array1))
+# Output: [2]
+
+print("Unique Elements in Array 2:", remove_dups(array2))
+# Output: [1, 2, 3, 4, 5]
+
+print("Unique Elements in Array 3:", remove_dups(array3))
+# Output: [5, 4, 3, 2, 1]
